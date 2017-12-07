@@ -69,13 +69,13 @@ $EndComp
 $Comp
 L Conn_01x04_Male J2
 U 1 1 5A22155E
-P 3700 2750
-F 0 "J2" H 3700 2950 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 3700 2450 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Angled_1x04_Pitch2.54mm" H 3700 2750 50  0001 C CNN
-F 3 "" H 3700 2750 50  0001 C CNN
-	1    3700 2750
-	1    0    0    -1  
+P 3700 2850
+F 0 "J2" H 3700 3050 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3700 2550 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x04_Pitch2.54mm" H 3700 2850 50  0001 C CNN
+F 3 "" H 3700 2850 50  0001 C CNN
+	1    3700 2850
+	1    0    0    1   
 $EndComp
 $Comp
 L R R5
@@ -330,13 +330,13 @@ Wire Wire Line
 $Comp
 L Conn_01x04_Male J1
 U 1 1 5A222349
-P 3700 3450
-F 0 "J1" H 3700 3650 50  0000 C CNN
-F 1 "Conn_01x04_Male" H 3700 3150 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Angled_1x04_Pitch2.54mm" H 3700 3450 50  0001 C CNN
-F 3 "" H 3700 3450 50  0001 C CNN
-	1    3700 3450
-	1    0    0    -1  
+P 3700 3550
+F 0 "J1" H 3700 3750 50  0000 C CNN
+F 1 "Conn_01x04_Male" H 3700 3250 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Angled_1x04_Pitch2.54mm" H 3700 3550 50  0001 C CNN
+F 3 "" H 3700 3550 50  0001 C CNN
+	1    3700 3550
+	1    0    0    1   
 $EndComp
 Text Label 3550 3650 2    60   ~ 0
 PC3
@@ -345,7 +345,7 @@ Wire Wire Line
 Wire Wire Line
 	4000 3650 4000 4650
 Wire Wire Line
-	4000 4650 9350 4650
+	4000 4650 8900 4650
 Wire Wire Line
 	6900 3400 7050 3400
 Wire Wire Line
@@ -474,7 +474,7 @@ F 3 "" H 6350 2150 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	9350 4650 9350 2950
+	8900 4650 8900 3350
 $Comp
 L C C4
 U 1 1 5A233F5E
@@ -520,53 +520,46 @@ Connection ~ 6200 4000
 Wire Wire Line
 	6600 4000 7050 4000
 Connection ~ 7050 4000
-$Comp
-L Conn_01x03_Male J3
-U 1 1 5A2603E6
-P 9100 3250
-F 0 "J3" H 9100 3450 50  0000 C CNN
-F 1 "Conn_01x03_Male" H 9100 3050 50  0000 C CNN
-F 2 "Pin_Headers:Pin_Header_Straight_1x03_Pitch2.54mm" H 9100 3250 50  0001 C CNN
-F 3 "" H 9100 3250 50  0001 C CNN
-	1    9100 3250
-	-1   0    0    1   
-$EndComp
-Wire Wire Line
-	9350 2950 8900 2950
-Wire Wire Line
-	8900 2950 8900 3150
 Wire Wire Line
 	8800 3250 8900 3250
 Wire Wire Line
 	8400 3250 8500 3250
 Wire Wire Line
-	8400 3350 8900 3350
-$Comp
-L R R9
-U 1 1 5A260AC7
-P 8550 2850
-F 0 "R9" V 8630 2850 50  0000 C CNN
-F 1 "0R" V 8550 2850 50  0000 C CNN
-F 2 "Resistors_SMD:R_0805_HandSoldering" V 8480 2850 50  0001 C CNN
-F 3 "" H 8550 2850 50  0001 C CNN
-	1    8550 2850
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	8400 3150 8550 3150
 Wire Wire Line
-	8550 3150 8550 3000
+	8550 3150 8550 3050
 $Comp
 L +5V #PWR018
 U 1 1 5A260D0D
-P 8550 2600
-F 0 "#PWR018" H 8550 2450 50  0001 C CNN
-F 1 "+5V" H 8550 2740 50  0000 C CNN
-F 2 "" H 8550 2600 50  0001 C CNN
-F 3 "" H 8550 2600 50  0001 C CNN
-	1    8550 2600
+P 8750 2900
+F 0 "#PWR018" H 8750 2750 50  0001 C CNN
+F 1 "+5V" H 8750 3040 50  0000 C CNN
+F 2 "" H 8750 2900 50  0001 C CNN
+F 3 "" H 8750 2900 50  0001 C CNN
+	1    8750 2900
 	1    0    0    -1  
 $EndComp
+$Comp
+L Conn_01x05_Male J3
+U 1 1 5A28BDF7
+P 9100 3150
+F 0 "J3" H 9100 3450 50  0000 C CNN
+F 1 "Conn_01x05_Male" V 8900 3150 50  0000 C CNN
+F 2 "Pin_Headers:Pin_Header_Straight_1x05_Pitch2.54mm" H 9100 3150 50  0001 C CNN
+F 3 "" H 9100 3150 50  0001 C CNN
+	1    9100 3150
+	-1   0    0    1   
+$EndComp
 Wire Wire Line
-	8550 2600 8550 2700
+	8550 3050 8900 3050
+Wire Wire Line
+	8750 2900 8750 2950
+Wire Wire Line
+	8750 2950 8900 2950
+Wire Wire Line
+	8400 3350 8850 3350
+Wire Wire Line
+	8850 3350 8850 3150
+Wire Wire Line
+	8850 3150 8900 3150
 $EndSCHEMATC
