@@ -36,7 +36,7 @@ EELAYER END
 $Descr USLetter 11000 8500
 encoding utf-8
 Sheet 1 1
-Title "Rotary Encoder Breakout Board"
+Title "EC12PLRGB Rotary Encoder Breakout Board"
 Date ""
 Rev "1.0"
 Comp ""
