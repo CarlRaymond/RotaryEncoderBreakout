@@ -5,5 +5,5 @@ The board can be used as an Arduino Uno shield, or on a breadboard. An extra hea
 
 Designed with KiCad.
 
-![Image of breakout board](board/images/RotaryEncoderBreakout.png)
-![Image of schematic diagram](board/images/RotaryEncoderBreakout.sch.svg)
+![Image of breakout board](kicad/images/RotaryEncoderBreakout.png)
+![Image of schematic diagram](kicad/images/RotaryEncoderBreakout.sch.svg)
