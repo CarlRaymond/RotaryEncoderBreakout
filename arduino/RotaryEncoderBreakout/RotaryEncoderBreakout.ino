@@ -1,3 +1,26 @@
+// This demonstrates using the pin change interrupt to react to rotating
+// the control and pressing the button. The pushbutton and the two phases
+// of the encoder are all connected to port C. A bit change on any of those
+// pins will invoke the port C pin change ISR, whose job is to sample the
+// new values, and compare to the old values to figure out what happened.
+//
+// The ISR sends output to the serial port for viewing with the Serial Monitor.
+//
+// The main processing loop uses the Adafruit Neopixel library to continually
+// change the color of the pixel. Operating the control does not affect the
+// pixel behavior.
+// 
+// Pin assignments:
+//
+// Encoder pushbutton, PORTC bit 0
+#define PUSHBUTTON_PIN 14
+// Encoder phase A, PORTC bit 1
+#define PHASEA_PIN 15
+// Encoder phase B, PORTC bit 2
+#define PHASEB_PIN 16
+// Data out to WS2811, PORTC bit 3
+#define LED_PIN 17
+
 #include <Adafruit_NeoPixel.h>
 #ifdef __AVR__
   #include <avr/power.h>
@@ -11,64 +34,65 @@
 //   NEO_GRB     Pixels are wired for GRB bitstream (most NeoPixel products)
 //   NEO_RGB     Pixels are wired for RGB bitstream (v1 FLORA pixels, not v2)
 //   NEO_RGBW    Pixels are wired for RGBW bitstream (NeoPixel RGBW products)
-Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, 17, NEO_GRB + NEO_KHZ800);
+Adafruit_NeoPixel strip = Adafruit_NeoPixel(1, LED_PIN, NEO_GRB + NEO_KHZ400);
 
-// IMPORTANT: To reduce NeoPixel burnout risk, add 1000 uF capacitor across
-// pixel power leads, add 300 - 500 Ohm resistor on first pixel's currentEncoderData input
-// and minimize distance between Arduino and first pixel.  Avoid connecting
-// on a live circuit...if you must, connect GND first.
-
-// Holds previous currentEncoderData read from encoder port
-volatile byte lastEncoderData = 0x00;
-// Shift register for decoding quadrature transitions in lower 4 bits
-volatile byte encoderDataRegister = 0x00;
-
+// Rotating clockwise will increase value; counterclockwise will decrease it.
 volatile byte encoderValue = 0;
 
 void setup() {
-  pinMode(14, INPUT);   // Pushbutton
-  pinMode(15, INPUT);   // Encoder A
-  pinMode(16, INPUT);   // Encoder B
-  pinMode(17, OUTPUT);  // WS2811 data
+  pinMode(PUSHBUTTON_PIN, INPUT);
+  pinMode(PHASEA_PIN, INPUT);
+  pinMode(PHASEB_PIN, INPUT);
+  pinMode(LED_PIN, OUTPUT);
 
   Serial.begin(230400);
 
-  // Enable pin change interrupts on 14-16
-  *digitalPinToPCMSK(14) |= bit (digitalPinToPCMSKbit(14));  // enable pin
-  *digitalPinToPCMSK(15) |= bit (digitalPinToPCMSKbit(15));  // enable pin
-  *digitalPinToPCMSK(16) |= bit (digitalPinToPCMSKbit(16));  // enable pin
-  PCIFR  |= bit (digitalPinToPCICRbit(14)); // clear any outstanding interrupt
-  PCICR  |= bit (digitalPinToPCICRbit(14)); // enable interrupt for the group
+  // Enable pin change interrupts
+  *digitalPinToPCMSK(PUSHBUTTON_PIN) |= bit (digitalPinToPCMSKbit(14));  // enable pin
+  *digitalPinToPCMSK(PHASEA_PIN) |= bit (digitalPinToPCMSKbit(15));  // enable pin
+  *digitalPinToPCMSK(PHASEB_PIN) |= bit (digitalPinToPCMSKbit(16));  // enable pin
+
+  // Clear outstanding interrupts and enable. Only necessary to reference one
+  // pin since all configured pins generate the same interrupt.
+  PCIFR  |= bit (digitalPinToPCICRbit(PUSHBUTTON_PIN));
+  PCICR  |= bit (digitalPinToPCICRbit(PUSHBUTTON_PIN));
   
   // Commence Neopixeling
   strip.begin();
   strip.show(); // Initialize all pixels to 'off'
 
-  // Get initial state of encoder bits
-  lastEncoderData = PINC & 0x06;
-  encoderDataRegister = (lastEncoderData) >> 1;
 }
 
 void loop() {
   // Some example procedures showing how to display to the pixels:
-  //colorWipe(strip.Color(255, 0, 0), 16); // Red
-  // colorWipe(strip.Color(0, 255, 0), 16); // Green
-  // colorWipe(strip.Color(0, 0, 255), 17); // Blue
-  // colorWipe(strip.Color(127, 0, 127), 16); //Purple
-  // rainbow(20);
-  // rainbowCycle(20);
-  strip.setPixelColor(0, Wheel(encoderValue));
-  strip.show();
+  colorWipe(strip.Color(255, 0, 0), 16); // Red
+  colorWipe(strip.Color(0, 255, 0), 16); // Green
+  colorWipe(strip.Color(0, 0, 255), 17); // Blue
+  colorWipe(strip.Color(127, 0, 127), 16); //Purple
+  rainbow(20);
+  rainbowCycle(20);
 }
 
 // Pin change interrupt for PORT C: Button was pressed/released, or
 // the encoder was rotated.
+// One click of the wheel cycles through all four states of the quadrature
+// encoding, and this ISR is invoked four times. The variable encoderValue
+// is only incremented or decremented once per click.
 ISR(PCINT1_vect)
 {
-  static int newlinecountdown = 100;
+  // Holds previous currentEncoderData read from encoder port
+  static byte lastEncoderData = 0x00;
+  // Shift register for decoding quadrature transitions in lower 4 bits
+  static byte quadratureRegister = 0x00;
 
-  // Get current data
+  // Helps with cleaner output on the serial port, by adding a newline
+  // at intervals.
+  static int newlineCountdown = 80;
+
+  // Get current data on PORTC bits 0-2; mask off the rest.
   byte currentEncoderData = PINC & 0x07;
+
+  // Figure out what changed
   byte diff = currentEncoderData ^ lastEncoderData;
 
   // Did pushbutton bit change?
@@ -80,23 +104,25 @@ ISR(PCINT1_vect)
       Serial.print('U');  // Up
   }
 
-  // Did rotary bits change?
+  // Did quadrature bits change?
   if (diff & 0x06) {
-    // Read two quadrature bits and shift into register.  Keep prior two bits; mask off the rest
+    // Shift prior quadrature bits left, and read current bits in; mask off the rest
     byte encBits = (PINC & 0x06) >> 1;
-    encoderDataRegister = ((encoderDataRegister << 2) | encBits ) & 0x0f;
+    quadratureRegister = ((quadratureRegister << 2) | encBits ) & 0x0f;
 
     // Figure out what happened.
-    switch (encoderDataRegister) {
+    switch (quadratureRegister) {
       // Clockwise cases:
       case 0x01:  // 00 -> 01
       case 0x07:  // 01 -> 11
       case 0x0e:  // 11 -> 10
       case 0x08:  // 10 -> 00
         Serial.print('>');
-        if (encBits & 0x01) {
+
+        // Only increment value 1 time out of 4
+        if ((encBits & 0x03) == 0x03) {
           encoderValue++;
-          //Serial.print(encoderValue);
+          Serial.print(encoderValue);
         }
         break;
 
@@ -106,9 +132,11 @@ ISR(PCINT1_vect)
       case 0x04:  // 01 -> 00
       case 0x02:  // 00 -> 10
         Serial.print('<');
-        if (encBits & 0x01) {
+
+        // Only decrement the value 1 time out of 4
+        if ((encBits & 0x03) == 0x03) {
           encoderValue--;
-          //Serial.print(encoderValue);
+          Serial.print(encoderValue);
         }
         break;
 
@@ -119,11 +147,13 @@ ISR(PCINT1_vect)
     } 
   }
 
+  // Remember this state for next time through.
   lastEncoderData = currentEncoderData;
 
-  if (--newlinecountdown == 0) {
+  // Time for a newline?
+  if (--newlineCountdown == 0) {
     Serial.println();
-    newlinecountdown = 100;
+    newlineCountdown = 80;
   }
 }
 
