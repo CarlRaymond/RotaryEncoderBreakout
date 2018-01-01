@@ -1,0 +1,3 @@
+Resistors and capacitors are generic; pads are oversize to work with 0805 or 1206 sizes.
+Miscellaneous items:
+2.54mm pitch pin headers, 9 positions total.

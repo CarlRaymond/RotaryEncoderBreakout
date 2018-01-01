@@ -53,6 +53,9 @@ F 0 "U1" H 7075 3650 60  0000 C CNN
 F 1 "WS2811" H 7000 4125 60  0000 C CNN
 F 2 "lib_fp:SOIC-8_3.9x4.9mm_Pitch1.27mm" H 7250 3800 60  0001 C CNN
 F 3 "" H 7250 3800 60  0001 C CNN
+F 4 "Mouser" H 7250 3800 60  0001 C CNN "Distributor"
+F 5 "485-1378" H 7250 3800 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/Adafruit/1378/?qs=%2fha2pyFadujIsUxzuHfqvCEPPtKxbz3Fteyuvyy64JU%3d" H 7250 3800 60  0001 C CNN "Dist. URL"
 	1    7250 3800
 	1    0    0    -1  
 $EndComp
@@ -75,6 +78,9 @@ F 0 "R5" V 4830 3350 50  0000 C CNN
 F 1 "10K" V 4750 3350 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 4680 3350 50  0001 C CNN
 F 3 "" H 4750 3350 50  0001 C CNN
+F 4 "Mouser" H 4750 3350 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0710KL" H 4750 3350 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL" H 4750 3350 60  0001 C CNN "Dist. URL"
 	1    4750 3350
 	1    0    0    -1  
 $EndComp
@@ -86,6 +92,9 @@ F 0 "R2" V 4280 3700 50  0000 C CNN
 F 1 "22K" V 4200 3700 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 4130 3700 50  0001 C CNN
 F 3 "" H 4200 3700 50  0001 C CNN
+F 4 "Mouser" H 4200 3700 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0722KL" H 4200 3700 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0722KL" H 4200 3700 60  0001 C CNN "Dist. URL"
 	1    4200 3700
 	0    1    1    0   
 $EndComp
@@ -97,6 +106,9 @@ F 0 "C1" H 3975 4000 50  0000 L CNN
 F 1 ".1uF" H 3975 3800 50  0000 L CNN
 F 2 "lib_fp:C_0805_HandSoldering" H 3988 3750 50  0001 C CNN
 F 3 "" H 3950 3900 50  0001 C CNN
+F 4 "Mouser" H 3950 3900 60  0001 C CNN "Distributor"
+F 5 "C0805C104M5RACTU" H 3950 3900 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/80-C0805C104M5R" H 3950 3900 60  0001 C CNN "Dist. URL"
 	1    3950 3900
 	1    0    0    -1  
 $EndComp
@@ -108,6 +120,9 @@ F 0 "C2" H 3975 4600 50  0000 L CNN
 F 1 ".1uF" H 3975 4400 50  0000 L CNN
 F 2 "lib_fp:C_0805_HandSoldering" H 3988 4350 50  0001 C CNN
 F 3 "" H 3950 4500 50  0001 C CNN
+F 4 "Mouser" H 3950 4500 60  0001 C CNN "Distributor"
+F 5 "C0805C104M5RACTU" H 3950 4500 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/80-C0805C104M5R" H 3950 4500 60  0001 C CNN "Dist. URL"
 	1    3950 4500
 	1    0    0    -1  
 $EndComp
@@ -119,6 +134,9 @@ F 0 "R3" V 4280 4300 50  0000 C CNN
 F 1 "22K" V 4200 4300 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 4130 4300 50  0001 C CNN
 F 3 "" H 4200 4300 50  0001 C CNN
+F 4 "Mouser" H 4200 4300 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0722KL" H 4200 4300 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0722KL" H 4200 4300 60  0001 C CNN "Dist. URL"
 	1    4200 4300
 	0    1    1    0   
 $EndComp
@@ -130,6 +148,9 @@ F 0 "R4" V 4530 3350 50  0000 C CNN
 F 1 "10K" V 4450 3350 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 4380 3350 50  0001 C CNN
 F 3 "" H 4450 3350 50  0001 C CNN
+F 4 "Mouser" H 4450 3350 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0710KL" H 4450 3350 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL" H 4450 3350 60  0001 C CNN "Dist. URL"
 	1    4450 3350
 	1    0    0    -1  
 $EndComp
@@ -352,6 +373,9 @@ F 0 "R1" V 6480 4700 50  0000 C CNN
 F 1 "10K" V 6400 4700 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 6330 4700 50  0001 C CNN
 F 3 "" H 6400 4700 50  0001 C CNN
+F 4 "Mouser" H 6400 4700 60  0001 C CNN "Distributor"
+F 5 "603-RC0805FR-0710KL" H 6400 4700 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0710KL" H 6400 4700 60  0001 C CNN "Dist. URL"
 	1    6400 4700
 	1    0    0    -1  
 $EndComp
@@ -374,6 +398,9 @@ F 0 "R6" V 7330 3000 50  0000 C CNN
 F 1 "100" V 7250 3000 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 7180 3000 50  0001 C CNN
 F 3 "" H 7250 3000 50  0001 C CNN
+F 4 "Mouser" H 7250 3000 60  0001 C CNN "Distributor"
+F 5 "603-RC0805FR-07100RL" H 7250 3000 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-07100RL" H 7250 3000 60  0001 C CNN "Dist. URL"
 	1    7250 3000
 	1    0    0    -1  
 $EndComp
@@ -385,6 +412,9 @@ F 0 "C3" H 7475 3350 50  0000 L CNN
 F 1 ".1uF" H 7475 3150 50  0000 L CNN
 F 2 "lib_fp:C_0805_HandSoldering" H 7488 3100 50  0001 C CNN
 F 3 "" H 7450 3250 50  0001 C CNN
+F 4 "Mouser" H 7450 3250 60  0001 C CNN "Distributor"
+F 5 "C0805C104M5RACTU" H 7450 3250 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/80-C0805C104M5R" H 7450 3250 60  0001 C CNN "Dist. URL"
 	1    7450 3250
 	0    1    1    0   
 $EndComp
@@ -416,6 +446,9 @@ F 0 "R7" V 8080 3750 50  0000 C CNN
 F 1 "33" V 8000 3750 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 7930 3750 50  0001 C CNN
 F 3 "" H 8000 3750 50  0001 C CNN
+F 4 "Mouser" H 8000 3750 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0733RL" H 8000 3750 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0733RL" H 8000 3750 60  0001 C CNN "Dist. URL"
 	1    8000 3750
 	0    -1   -1   0   
 $EndComp
@@ -473,6 +506,9 @@ F 0 "C4" H 5575 4800 50  0000 L CNN
 F 1 ".1uF" H 5575 4600 50  0000 L CNN
 F 2 "lib_fp:C_0805_HandSoldering" H 5588 4550 50  0001 C CNN
 F 3 "" H 5550 4700 50  0001 C CNN
+F 4 "Mouser" H 5550 4700 60  0001 C CNN "Distributor"
+F 5 "C0805C104M5RACTU" H 5550 4700 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/80-C0805C104M5R" H 5550 4700 60  0001 C CNN "Dist. URL"
 	1    5550 4700
 	1    0    0    -1  
 $EndComp
@@ -484,6 +520,9 @@ F 0 "R8" V 5880 4500 50  0000 C CNN
 F 1 "22K" V 5800 4500 50  0000 C CNN
 F 2 "lib_fp:R_0805_HandSoldering" V 5730 4500 50  0001 C CNN
 F 3 "" H 5800 4500 50  0001 C CNN
+F 4 "Mouser" H 5800 4500 60  0001 C CNN "Distributor"
+F 5 "RC0805FR-0722KL" H 5800 4500 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.mouser.com/ProductDetail/603-RC0805FR-0722KL" H 5800 4500 60  0001 C CNN "Dist. URL"
 	1    5800 4500
 	0    1    1    0   
 $EndComp
@@ -560,6 +599,9 @@ F 0 "SW1" V 5900 3900 60  0000 C CNN
 F 1 "EC12PLRGB" V 5050 3750 40  0000 C CNN
 F 2 "" H 5550 3825 60  0001 C CNN
 F 3 "" H 5550 3825 60  0001 C CNN
+F 4 "SparkFun" H 5550 3900 60  0001 C CNN "Distributor"
+F 5 "10982" H 5550 3900 60  0001 C CNN "Dist. Part No."
+F 6 "https://www.sparkfun.com/products/10982" H 5550 3900 60  0001 C CNN "Dist. URL"
 	1    5550 3900
 	0    1    1    0   
 $EndComp
