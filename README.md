@@ -5,5 +5,7 @@ The board can be used as an Arduino Uno shield, or on a breadboard. An extra hea
 
 Designed with KiCad. Includes sample Arduino code.
 
+Bare board can be ordered from OSH Park: https://oshpark.com/shared_projects/9eeAVyiK
+
 ![Image of breakout board](kicad/images/RotaryEncoderBreakout.png)
 ![Image of schematic diagram](kicad/images/RotaryEncoderBreakout.sch.svg)
