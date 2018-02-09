@@ -65,7 +65,7 @@ U 1 1 5A22155E
 P 3050 3350
 F 0 "J2" H 3050 3550 50  0000 C CNN
 F 1 "Conn_01x04_Male" H 3050 3050 50  0000 C CNN
-F 2 "lib_fp:Pin_Header_Straight_1x04_Pitch2.54mm" H 3050 3350 50  0001 C CNN
+F 2 "lib_fp:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3050 3350 50  0001 C CNN
 F 3 "" H 3050 3350 50  0001 C CNN
 	1    3050 3350
 	1    0    0    1   
@@ -344,7 +344,7 @@ U 1 1 5A222349
 P 3050 4050
 F 0 "J1" H 3050 4250 50  0000 C CNN
 F 1 "Conn_01x04_Male" H 3050 3750 50  0000 C CNN
-F 2 "lib_fp:Pin_Header_Straight_1x04_Pitch2.54mm" H 3050 4050 50  0001 C CNN
+F 2 "lib_fp:Socket_Strip_Straight_1x04_Pitch2.54mm" H 3050 4050 50  0001 C CNN
 F 3 "" H 3050 4050 50  0001 C CNN
 	1    3050 4050
 	1    0    0    1   
@@ -597,7 +597,7 @@ U 1 1 5A49622F
 P 5550 3900
 F 0 "SW1" V 5900 3900 60  0000 C CNN
 F 1 "EC12PLRGB" V 5050 3750 40  0000 C CNN
-F 2 "" H 5550 3825 60  0001 C CNN
+F 2 "lib_fp:EC12PLRGB_Rotary_Encoder" H 5550 3825 60  0001 C CNN
 F 3 "" H 5550 3825 60  0001 C CNN
 F 4 "SparkFun" H 5550 3900 60  0001 C CNN "Distributor"
 F 5 "10982" H 5550 3900 60  0001 C CNN "Dist. Part No."
